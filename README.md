@@ -17,6 +17,8 @@ Execute program on device.
 ```make run_on_device```
 
 
+## PL diagram
+
 ![diagram](docs/diagram.png)
 
 
