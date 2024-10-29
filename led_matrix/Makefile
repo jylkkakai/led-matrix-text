@@ -12,34 +12,33 @@ led_matrix.elf.size \
 LIBS := -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 
 # Add inputs and outputs from these tool invocations to the build variables 
-LD_SRCS += \
-./src/lscript.ld 
-
-C_SRCS += \
-./src/helloworld.c \
-./src/platform.c 
-
+# LD_SRCS += \
+# ./src/lscript.ld 
+#
+# C_SRCS += \
+# ./src/main.c \
+# ./src/led_matrix.c 
+#
 OBJS += \
-./build/helloworld.o \
-./build/platform.o 
+./build/main.o \
+./build/led_matrix.o \
 
 C_DEPS += \
-./build/helloworld.d \
-./build/platform.d 
+./build/main.d \
+./build/led_matrix.d \
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 src \
-build\
+# build\
 
 # All Target
 all: pre-build main-build
 
 # Main-build Target
-main-build:  led_matrix.elf secondary-outputs
+main-build: $(OBJS) led_matrix.elf secondary-outputs
 
-# Each subdirectory must supply rules for building sources it contributes
- build/%.o: ./src/%.c
+build/%.o: ./src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM v7 gcc compiler'
 	@mkdir -p $(@D)

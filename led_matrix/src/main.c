@@ -46,15 +46,25 @@
  */
 
 #include "../../led_matrix_bsp/ps7_cortexa9_0/include/sleep.h"
-#include "../../led_matrix_bsp/ps7_cortexa9_0/include/xparameters.h"
+#include "led_matrix.h"
+
+void test_btns_sws() {
+  uint8_t counter;
+  while (1) {
+    uint8_t btns = get_buttons();
+    uint8_t sws = get_switches();
+    if (btns || sws) {
+      set_leds(counter);
+      set_rgb_leds(counter);
+      counter += 1;
+    }
+    // sleep(1);
+    usleep(500000);
+  }
+}
 
 int main() {
 
-  uintptr_t *leds = (uintptr_t *)XPAR_AXI_GPIO_LEDS_BASEADDR;
-  *leds = 0x0;
-  while (1) {
-    *leds += 1;
-    sleep(1);
-  }
+  test_btns_sws();
   return 0;
 }
