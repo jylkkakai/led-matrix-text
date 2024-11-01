@@ -1,4 +1,4 @@
-/******************************************************************************
+/*****************************************************************************
  *
  * Copyright (C) 2009 - 2014 Xilinx, Inc.  All rights reserved.
  *
@@ -45,26 +45,14 @@
  *   ps7_uart    115200 (configured by bootrom/bsp)
  */
 
-#include "../../led_matrix_bsp/ps7_cortexa9_0/include/sleep.h"
-#include "led_matrix.h"
-
-void test_btns_sws() {
-  uint8_t counter;
-  while (1) {
-    uint8_t btns = get_buttons();
-    uint8_t sws = get_switches();
-    if (btns || sws) {
-      set_leds(counter);
-      set_rgb_leds(counter);
-      counter += 1;
-    }
-    // sleep(1);
-    usleep(500000);
-  }
-}
+#include "test.h"
 
 int main() {
 
-  test_btns_sws();
+  // test_btns_sws();
+  test_leds();
+  reset_matrix();
+  // test();
+  test_matrix();
   return 0;
 }

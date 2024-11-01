@@ -22,10 +22,12 @@ LIBS := -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 OBJS += \
 ./build/main.o \
 ./build/led_matrix.o \
+./build/test.o \
 
 C_DEPS += \
 ./build/main.d \
 ./build/led_matrix.d \
+./build/test.d \
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \

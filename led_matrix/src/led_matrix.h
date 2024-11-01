@@ -15,9 +15,10 @@ uint8_t get_buttons();
 void set_leds(uint8_t value);
 void set_rgb_leds(uint8_t value);
 void set_sda(uint8_t value);
-void set_sck(uint8_t value);
+void sck_cycle();
 void set_sb(uint8_t value);
-void set_lat(uint8_t value);
+void latch();
 void set_rstn(uint8_t value);
+void set_channel(uint8_t value);
 
 #endif // !LED_MATRIX_
