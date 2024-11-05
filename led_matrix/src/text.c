@@ -1,0 +1,10 @@
+#include "text.h"
+#include "led_matrix.h"
+
+static const uint8_t mchars[2][5] = {
+    {0x7D, 0x0, 0x0, 0x0, 0x0},  // !
+    {0x60, 0x60, 0x0, 0x0, 0x0}, // "
+
+};
+
+void write_mchar() {}

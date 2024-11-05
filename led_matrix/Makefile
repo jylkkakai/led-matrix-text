@@ -23,11 +23,13 @@ OBJS += \
 ./build/main.o \
 ./build/led_matrix.o \
 ./build/test.o \
+./build/text.o \
 
 C_DEPS += \
 ./build/main.d \
 ./build/led_matrix.d \
 ./build/test.d \
+./build/text.d \
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
