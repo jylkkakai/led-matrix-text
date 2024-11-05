@@ -5,7 +5,7 @@
 #define HEIGHT 8
 #define COLORS 3
 
-void reset_matrix();
+// void reset_matrix();
 void test_btns_sws();
 void test_leds();
 void test();

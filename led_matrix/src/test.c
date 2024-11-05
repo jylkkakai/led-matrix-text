@@ -4,28 +4,28 @@
 #include <stdint.h>
 
 static uint8_t matrix[WIDTH][HEIGHT][COLORS];
-
-void reset_matrix() {
-  volatile uintptr_t *ctrl = (uintptr_t *)MTX_CTRL_BASEADDR;
-  const size_t bits = 24 * 6;
-
-  set_rstn(1);
-  set_sb(0);
-  // *ctrl = 1;
-  // Set brightness to 1 for all channels
-  for (size_t i = 0; i < bits; i++) {
-    set_sda(1);
-    sck_cycle();
-    // *ctrl_addr &= ~0x8;
-    // *ctrl_addr |= 0x10;
-    // *ctrl_addr |= 0x8;
-  }
-  latch();
-  // *ctrl_addr |= 0x2;
-  // *ctrl_addr &= ~0x2;
-  set_sb(1);
-  // *ctrl_addr |= 0x4;
-}
+//
+// void reset_matrix() {
+//   volatile uintptr_t *ctrl = (uintptr_t *)MTX_CTRL_BASEADDR;
+//   const size_t bits = 24 * 6;
+//
+//   set_rstn(1);
+//   set_sb(0);
+//   // *ctrl = 1;
+//   // Set brightness to 1 for all channels
+//   for (size_t i = 0; i < bits; i++) {
+//     set_sda(1);
+//     sck_cycle();
+//     // *ctrl_addr &= ~0x8;
+//     // *ctrl_addr |= 0x10;
+//     // *ctrl_addr |= 0x8;
+//   }
+//   latch();
+//   // *ctrl_addr |= 0x2;
+//   // *ctrl_addr &= ~0x2;
+//   set_sb(1);
+//   // *ctrl_addr |= 0x4;
+// }
 
 // void set_pixel(uint8_t y, uint8_t r, uint8_t g, uint8_t b) {
 //
@@ -153,7 +153,7 @@ void test_matrix() {
   size_t j = 0;
   while (1) {
     for (size_t i = 0; i < HEIGHT; i++) {
-      set_pixel(i, 2, 0xff, 0x0, 0x0);
+      set_pixel(1, 2, 0xff, 0x0, 0x0);
       write_matrix();
       // usleep(100000);
     }

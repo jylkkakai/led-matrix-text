@@ -45,7 +45,9 @@
  *   ps7_uart    115200 (configured by bootrom/bsp)
  */
 
+#include "led_matrix.h"
 #include "test.h"
+#include "text.h"
 
 int main() {
 
@@ -53,6 +55,7 @@ int main() {
   test_leds();
   reset_matrix();
   // test();
-  test_matrix();
+  // test_matrix();
+  write_alphabets();
   return 0;
 }
