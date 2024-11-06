@@ -7,4 +7,5 @@
 // const matrix_char get_mchar(const char achar);
 void write_mchar();
 void write_alphabets();
+void scrolling_print(char *text);
 #endif // TEXT_H_

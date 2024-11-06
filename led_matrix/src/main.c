@@ -56,6 +56,7 @@ int main() {
   reset_matrix();
   // test();
   // test_matrix();
-  write_alphabets();
+  // write_alphabets();
+  scrolling_print("A");
   return 0;
 }
